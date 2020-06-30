@@ -12,13 +12,14 @@ import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class Onboarding extends AppCompatActivity {
 
     private ViewPager viewPager;
-    private TextView tvNext;
+    private Button tvNext;
     private LinearLayout layoutDots;
     private IntroPref introPref;
     private int[] layouts;
@@ -40,6 +41,9 @@ public class Onboarding extends AppCompatActivity {
         tvNext = findViewById(R.id.tvNext);
         viewPager = findViewById(R.id.viewPager);
         layoutDots = findViewById(R.id.layoutDots);
+
+        tvNext.setVisibility(View.INVISIBLE);
+
 
 
 
@@ -78,11 +82,14 @@ public class Onboarding extends AppCompatActivity {
 
         @Override
         public void onPageSelected(int position) {
+
             addBottomDots(position);
 
             if(position == layouts.length - 1){
-               tvNext.setText("START");
+                tvNext.setVisibility(View.VISIBLE);
+               tvNext.setText("Get Started!");
             }else{
+                tvNext.setVisibility(View.INVISIBLE);
                 tvNext.setText("NEXT");
             }
         }
