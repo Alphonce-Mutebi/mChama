@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">mChama</string>
+
+    <integer-array name="img_id_arr">
+        <item>@drawable/ic_loans</item>
+        <item>@drawable/ic_savings</item>
+        <item>@drawable/ic_transactions</item>
+    </integer-array>
+</resources>
