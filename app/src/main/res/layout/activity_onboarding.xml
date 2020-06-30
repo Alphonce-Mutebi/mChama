@@ -1,25 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Onboarding">
 
     <androidx.viewpager.widget.ViewPager
-        android:id="@+id/slideViewPager"
+        android:id="@+id/viewPager"
         android:layout_width="match_parent"
-        android:layout_height="640dp">
-
-    </androidx.viewpager.widget.ViewPager>
-
+        android:layout_height="match_parent"
+        />
+    
     <LinearLayout
-        android:id="@+id/dotsLayout"
+        android:id="@+id/layoutDots"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/slideViewPager"
-        android:layout_alignParentBottom="true"
-        android:orientation="vertical">
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginBottom="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
-    </LinearLayout>
-</RelativeLayout>
+    
+
+    <Button
+        android:id="@+id/tvNext"
+        android:background="@color/color1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="25dp"
+        android:text="NEXT"
+        android:textColor="@android:color/black"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

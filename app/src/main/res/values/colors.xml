@@ -5,4 +5,27 @@
     <color name="colorAccent">#03DAC5</color>
     <color name="backgroundColor">#E5E5E5</color>
     <color name="illustration_color">#92E3A9</color>
+    
+    <!--Dots inactive-->
+    <color name="color1">#92E3A9</color>
+    <color name="color2">#92E3A9</color>
+    <color name="color3">#92E3A9</color>
+
+    <!-- Dots Active  -->
+    <color name="green1">#346473</color>
+    <color name="green2">#346473</color>
+    <color name="green3">#346473</color>
+
+    <array name="active">
+        <item>@color/green1</item>
+        <item>@color/green2</item>
+        <item>@color/green3</item>
+    </array>
+
+    <array name="inactive">
+        <item>@color/color1</item>
+        <item>@color/color2</item>
+        <item>@color/color3</item>
+    </array>
+
 </resources>
