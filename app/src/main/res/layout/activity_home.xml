@@ -16,7 +16,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="110dp"
+            android:layout_marginTop="90dp"
             android:text="@string/welcome_back"
             android:textSize="45sp"
             android:fontFamily="@font/adobe_garamond_pro_bold"/>
@@ -61,6 +61,21 @@
             android:padding="15dp"
             />
 
+    <TextView
+        android:id="@+id/forgotpassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/forgot_password"
+        android:textSize="15sp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/adobe_garamond_pro_regular"
+
+        />
+
+
+
     <Button
         android:id="@+id/signin"
         android:layout_width="match_parent"
@@ -73,38 +88,41 @@
         android:background="@drawable/button"
         android:textColor="#ffffff"
 
-
         />
 
+
+    <LinearLayout
+        android:id="@+id/constraint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_weight="1"
+        >
     <TextView
-        android:id="@+id/forgotpassword"
+        android:id="@+id/no_account"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/forgot_password"
-        android:textSize="15sp"
+        android:text="No account? "
+        android:textSize="20sp"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
         android:layout_marginTop="15dp"
         android:fontFamily="@font/adobe_garamond_pro_regular"
-
-
         />
-
-
 
     <TextView
         android:id="@+id/signup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sign up"
-        android:textSize="15sp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginLeft="10dp"
         android:layout_marginTop="15dp"
+        android:layout_marginRight="20dp"
         android:fontFamily="@font/adobe_garamond_pro_regular"
+        android:text="@string/sign_up"
+        android:textColor="@color/color1"
+        android:textSize="20sp"
+        android:onClick="signup"/>
 
-        />
-
+    </LinearLayout>
 
 
 
