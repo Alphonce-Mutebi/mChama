@@ -1,5 +1,10 @@
 <resources>
     <string name="app_name">mChama</string>
+    <string name="new_here">New Here ?</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="sign_in">SIGN IN</string>
+    <string name="please_sign_in_with_your_account_details_below">Please sign in with your account details below</string>
+    <string name="welcome_back">Welcome back</string>
 
     <integer-array name="img_id_arr">
         <item>@drawable/ic_loans</item>
