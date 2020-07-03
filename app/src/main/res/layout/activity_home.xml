@@ -87,6 +87,7 @@
         android:fontFamily="@font/adobe_garamond_pro_regular"
         android:background="@drawable/button"
         android:textColor="#ffffff"
+        android:onClick="signin"
 
         />
 

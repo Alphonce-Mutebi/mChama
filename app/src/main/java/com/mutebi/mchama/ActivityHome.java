@@ -19,4 +19,10 @@ public class ActivityHome extends AppCompatActivity {
         Intent intent = new Intent(this, signUp.class);
         startActivity(intent);
     }
+
+    public void signin(View view) {
+        Intent intent = new Intent(this, dashboard.class);
+        startActivity(intent);
+
+    }
 }
