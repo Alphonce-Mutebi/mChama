@@ -1,14 +1,225 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".secondFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+
     <TextView
+        android:id="@+id/greetingText"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:background="@color/colorPrimaryDark"
+        android:paddingTop="20dp"
+        android:text="Hello"
+        android:fontFamily="@font/adobe_garamond_pro_bold"
+        android:textAlignment="center"
+        android:textColor="#ffff"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal" />
 
-</FrameLayout>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="125dp"
+        app:cardElevation="0dp"
+        app:cardCornerRadius="30dp"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <!--Deposit Money-->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/deposit"
+                style="@style/Widget.MaterialComponents.CardView"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="70dp"
+                app:cardElevation="4dp"
+                android:layout_marginStart="30dp"
+                app:cardCornerRadius="6dp"
+                android:backgroundTint="#ffff"
+                android:layout_marginLeft="30dp">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/savingsIcon"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_centerInParent="true"
+                        app:cardCornerRadius="24dp"
+                        >
+
+                        <ImageView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+
+                            android:src="@drawable/ic_savings_dashboard" />
+                    </com.google.android.material.card.MaterialCardView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Deposit Money"
+                        android:fontFamily="@font/adobe_garamond_pro_regular"
+                        android:textSize="12sp"
+                        android:layout_below="@+id/savingsIcon"
+                        android:layout_centerHorizontal="true"
+                        />
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Withdraw Money -->
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/withdraw"
+                style="@style/Widget.MaterialComponents.CardView"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="70dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="30dp"
+                app:cardElevation="4dp"
+                app:cardCornerRadius="6dp"
+                android:backgroundTint="#ffff"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="30dp">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/withdrawIcon"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_centerInParent="true"
+                        app:cardCornerRadius="24dp"
+                        >
+
+                        <ImageView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+
+                            android:src="@drawable/ic_withdraw_dashboard" />
+                    </com.google.android.material.card.MaterialCardView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/withdraw_money"
+                        android:fontFamily="@font/adobe_garamond_pro_regular
+"
+                        android:textSize="12sp"
+                        android:layout_below="@+id/withdrawIcon"
+                        android:layout_centerHorizontal="true"
+                        />
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Class List Card-->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/loans"
+                style="@style/Widget.MaterialComponents.CardView"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="270dp"
+                app:cardElevation="4dp"
+                android:layout_marginStart="30dp"
+                app:cardCornerRadius="6dp"
+                android:backgroundTint="#ffff"
+                android:layout_marginLeft="30dp">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/loansIcon"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_centerInParent="true"
+                        app:cardCornerRadius="24dp"
+                        >
+
+                        <ImageView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+
+                            android:src="@drawable/ic_loans_dashboard" />
+                    </com.google.android.material.card.MaterialCardView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/loans"
+                        android:fontFamily="@font/adobe_garamond_pro_regular"
+                        android:textSize="12sp"
+                        android:layout_below="@+id/loansIcon"
+                        android:layout_centerHorizontal="true"
+                        />
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Group maker card -->
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/groupMakerOption"
+                style="@style/Widget.MaterialComponents.CardView"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="270dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="30dp"
+                app:cardElevation="4dp"
+                app:cardCornerRadius="6dp"
+                android:backgroundTint="#ffff"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="30dp">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/transactions"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_centerInParent="true"
+                        app:cardCornerRadius="24dp"
+                        >
+
+                        <ImageView
+
+                            android:layout_width="84dp"
+                            android:layout_height="71dp"
+                            android:layout_gravity="center"
+
+                            android:src="@drawable/ic_transactions_dashboard" />
+                    </com.google.android.material.card.MaterialCardView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/transactions"
+                        android:textSize="12sp"
+                        android:fontFamily="@font/adobe_garamond_pro_regular"
+                        android:layout_below="@+id/transactions"
+                        android:layout_centerHorizontal="true"
+                        />
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+
+
+
+        </RelativeLayout>
+
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+</RelativeLayout>

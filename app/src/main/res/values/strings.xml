@@ -17,4 +17,7 @@
     <string name="home">Home</string>
     <string name="notifications">Notifications</string>
     <string name="profile">Profile</string>
+    <string name="withdraw_money">Withdraw Money</string>
+    <string name="loans">Loans</string>
+    <string name="transactions">Transactions</string>
 </resources>
