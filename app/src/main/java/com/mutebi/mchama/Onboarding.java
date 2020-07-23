@@ -166,7 +166,7 @@ public class Onboarding extends AppCompatActivity {
 
     private void launchHomeScreen() {
         introPref.setIsFirstTimeLaunch(false);
-        startActivity(new Intent(Onboarding.this, ActivityHome.class));
+        startActivity(new Intent(Onboarding.this, Login.class));
         finish();
     }
 

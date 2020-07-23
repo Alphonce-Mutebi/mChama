@@ -20,4 +20,6 @@
     <string name="withdraw_money">Withdraw Money</string>
     <string name="loans">Loans</string>
     <string name="transactions">Transactions</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="deposit_money">Deposit Money</string>
 </resources>

@@ -6,14 +6,14 @@
     app:startDestination="@id/secondFragment">
     <fragment
         android:id="@+id/firstFragment"
-        android:name="com.mutebi.mchama.firstFragment"
+        android:name="com.mutebi.mchama.profileFragment"
         android:label="fragment_first"
-        tools:layout="@layout/fragment_first" />
+        tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/secondFragment"
-        android:name="com.mutebi.mchama.secondFragment"
+        android:name="com.mutebi.mchama.homeFragment"
         android:label="fragment_second"
-        tools:layout="@layout/fragment_second" />
+        tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/thirdFragment"
         android:name="com.mutebi.mchama.thirdFragment"

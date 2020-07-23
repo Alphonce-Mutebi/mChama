@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".secondFragment">
+    tools:context=".homeFragment">
 
 
     <TextView
@@ -67,7 +67,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Deposit Money"
+                        android:text="@string/deposit_money"
                         android:fontFamily="@font/adobe_garamond_pro_regular"
                         android:textSize="12sp"
                         android:layout_below="@+id/savingsIcon"
@@ -114,8 +114,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/withdraw_money"
-                        android:fontFamily="@font/adobe_garamond_pro_regular
-"
+                        android:fontFamily="@font/adobe_garamond_pro_regular"
                         android:textSize="12sp"
                         android:layout_below="@+id/withdrawIcon"
                         android:layout_centerHorizontal="true"

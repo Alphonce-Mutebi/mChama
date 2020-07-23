@@ -7,7 +7,7 @@
     android:paddingLeft="10dp"
     android:paddingRight="10dp"
     android:orientation="vertical"
-    tools:context=".ActivityHome">
+    tools:context=".Login">
 
 
 
@@ -87,7 +87,7 @@
         android:fontFamily="@font/adobe_garamond_pro_regular"
         android:background="@drawable/button"
         android:textColor="#ffffff"
-        android:onClick="signin"
+
 
         />
 

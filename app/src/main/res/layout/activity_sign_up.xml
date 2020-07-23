@@ -7,7 +7,7 @@
     android:paddingLeft="10dp"
     android:paddingRight="10dp"
     android:orientation="vertical"
-    tools:context=".ActivityHome">
+    tools:context=".Login">
 
 
 
@@ -88,30 +88,34 @@
         android:padding="15dp"
         />
 
-
-
-
-
-    <Button
-        android:id="@+id/signin"
+    <EditText
+        android:id="@+id/confirm_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginTop="45dp"
-        android:text="SIGN UP"
+        android:layout_marginTop="15dp"
+        android:hint="@string/confirm_password"
+        android:inputType="textPassword"
         android:fontFamily="@font/adobe_garamond_pro_regular"
-        android:background="@drawable/button"
-        android:textColor="#ffffff"
-
+        android:background="@drawable/custom_input"
+        android:padding="15dp"
         />
 
 
+    <Button
+        android:id="@+id/signup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="45dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/button"
+        android:fontFamily="@font/adobe_garamond_pro_regular"
+        android:text="SIGN UP"
+        android:textColor="#ffffff"
 
-
-
-
-
+        />
 
 
 </LinearLayout>
