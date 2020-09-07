@@ -71,6 +71,7 @@
         android:layout_marginRight="20dp"
         android:layout_marginTop="15dp"
         android:fontFamily="@font/adobe_garamond_pro_regular"
+        android:onClick="goToForgotPassword"
 
         />
 

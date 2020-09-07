@@ -34,18 +34,27 @@
             android:fontFamily="@font/adobe_garamond_pro_regular"
             android:textColor="#DE000000"/>
 
+        <ImageView
+            android:id="@+id/line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_line_13"
+            android:layout_below="@+id/user_name"
+            android:layout_marginTop="15dp"
+            android:layout_centerHorizontal="true"/>
+
         <TextView
             android:id="@+id/name_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/user_name"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="35dp"
             android:layout_marginRight="20dp"
             android:layout_marginTop="15dp"
             android:paddingTop="30dp"
             android:text="Name:"
             android:textSize="15sp"
-            android:fontFamily="@font/adobe_garamond_pro_regular"/>
+            android:fontFamily="@font/adobe_garamond_pro_bold"/>
 
         <EditText
             android:id="@+id/name"
@@ -58,7 +67,7 @@
             android:inputType="text"
             android:fontFamily="@font/adobe_garamond_pro_regular"
             android:background="@drawable/custom_input"
-            android:padding="10dp"
+            android:padding="15dp"
             />
 
         <TextView
@@ -66,12 +75,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/name"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="35dp"
             android:layout_marginRight="20dp"
             android:paddingTop="20dp"
             android:text="Email:"
             android:textSize="15sp"
-            android:fontFamily="@font/adobe_garamond_pro_regular"/>
+            android:fontFamily="@font/adobe_garamond_pro_bold"/>
 
         <EditText
             android:id="@+id/email"
@@ -84,7 +93,7 @@
             android:inputType="text"
             android:fontFamily="@font/adobe_garamond_pro_regular"
             android:background="@drawable/custom_input"
-            android:padding="10dp"
+            android:padding="15dp"
             />
 
         <TextView
@@ -92,13 +101,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/email"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="35dp"
             android:layout_marginRight="20dp"
             android:text="Phone:"
             android:textSize="15sp"
             android:paddingTop="20dp"
 
-            android:fontFamily="@font/adobe_garamond_pro_regular"/>
+            android:fontFamily="@font/adobe_garamond_pro_bold"/>
 
         <EditText
             android:id="@+id/phone"
@@ -111,16 +120,18 @@
             android:inputType="number"
             android:fontFamily="@font/adobe_garamond_pro_regular"
             android:background="@drawable/custom_input"
-            android:padding="10dp"
+            android:padding="15dp"
             />
 
         <Button
             android:id="@+id/save_button"
             android:background="@drawable/button"
-            android:layout_width="300dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:layout_below="@id/phone"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="60dp"
             android:text="Save"
             android:fontFamily="@font/adobe_garamond_pro_regular"
             android:textColor="#ffffff"

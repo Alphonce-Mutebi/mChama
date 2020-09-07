@@ -148,4 +148,8 @@ public class Login extends AppCompatActivity {
     }
 
 
+    public void goToForgotPassword(View view) {
+        Intent forgot = new Intent(this, ForgotActivity.class);
+        startActivity(forgot);
+    }
 }

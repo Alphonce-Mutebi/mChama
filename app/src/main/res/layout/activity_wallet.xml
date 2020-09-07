@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,8 +7,7 @@
     android:paddingLeft="10dp"
     android:paddingRight="10dp"
     android:orientation="vertical"
-    tools:context=".Login">
-
+    tools:context=".Wallet">
 
 
 
@@ -18,8 +16,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="60dp"
-        android:text="@string/sign_up"
+        android:layout_marginTop="90dp"
+        android:text="Wallet"
         android:textSize="45sp"
         android:fontFamily="@font/adobe_garamond_pro_bold"/>
 
@@ -30,23 +28,11 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="20dp"
-        android:text="Please enter your details below to sign up."
+        android:text="Please enter you Phone number and the amount you wish to deposit"
         android:textSize="15sp"
         android:fontFamily="@font/adobe_garamond_pro_regular"/>
 
-    <EditText
-        android:id="@+id/name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="15dp"
-        android:hint="Name"
-        android:inputType="text"
-        android:fontFamily="@font/adobe_garamond_pro_regular"
-        android:background="@drawable/custom_input"
-        android:padding="15dp"
-        />
+
     <EditText
         android:id="@+id/phone"
         android:layout_width="match_parent"
@@ -54,7 +40,21 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="15dp"
-        android:hint="Phone Number"
+        android:hint="Phone"
+        android:inputType="number"
+        android:fontFamily="@font/adobe_garamond_pro_regular"
+        android:background="@drawable/custom_input"
+        android:padding="15dp"
+        />
+
+    <EditText
+        android:id="@+id/amount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="15dp"
+        android:hint="Amount"
         android:inputType="number"
         android:fontFamily="@font/adobe_garamond_pro_regular"
         android:background="@drawable/custom_input"
@@ -62,62 +62,40 @@
         />
 
 
-    <EditText
-        android:id="@+id/email"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="15dp"
-        android:hint="Email"
-        android:inputType="textEmailAddress"
-        android:fontFamily="@font/adobe_garamond_pro_regular"
-        android:background="@drawable/custom_input"
-        android:padding="15dp"
-        />
 
-    <EditText
-        android:id="@+id/password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="15dp"
-        android:hint="Password"
-        android:inputType="textPassword"
-        android:fontFamily="@font/adobe_garamond_pro_regular"
-        android:background="@drawable/custom_input"
-        android:padding="15dp"
-        />
-
-    <EditText
-        android:id="@+id/confirm_password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="15dp"
-        android:hint="@string/confirm_password"
-        android:inputType="textPassword"
-        android:fontFamily="@font/adobe_garamond_pro_regular"
-        android:background="@drawable/custom_input"
-        android:padding="15dp"
-        />
 
 
     <Button
-        android:id="@+id/signup"
+        android:id="@+id/wallet_submit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="45dp"
         android:layout_marginRight="20dp"
-        android:background="@drawable/button"
+        android:layout_marginTop="45dp"
+        android:text="SUBMIT"
         android:fontFamily="@font/adobe_garamond_pro_regular"
-        android:text="SIGN UP"
+        android:background="@drawable/button"
         android:textColor="#ffffff"
+        android:onClick="submit"
+
 
         />
+
+
+    <LinearLayout
+        android:id="@+id/constraint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_weight="1"
+        >
+
+
+
+    </LinearLayout>
+
+
+
 
 
 

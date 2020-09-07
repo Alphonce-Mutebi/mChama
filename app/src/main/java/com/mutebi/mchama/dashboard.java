@@ -7,6 +7,7 @@ import androidx.navigation.ui.NavigationUI;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -28,6 +29,12 @@ public class dashboard extends AppCompatActivity {
 
 
 
+
+    }
+
+    public void goToDeposit(View view) {
+        Intent depositMoney = new Intent(dashboard.this, DepositMoney.class);
+        startActivity(depositMoney);
 
     }
 }
