@@ -55,7 +55,7 @@
                         android:layout_centerInParent="true"
                         app:cardCornerRadius="24dp"
                         android:onClick="goToDeposit"
-                        >
+                        tools:ignore="OnClick">
 
                         <ImageView
 
