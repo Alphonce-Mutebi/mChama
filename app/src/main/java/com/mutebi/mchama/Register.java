@@ -1,24 +1,30 @@
 package com.mutebi.mchama;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import okhttp3.ResponseBody;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
+
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.mutebi.mchama.Retrofit.ApiClient;
-import com.mutebi.mchama.Retrofit.ApiService;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class Register extends AppCompatActivity {
 
@@ -30,8 +36,9 @@ public class Register extends AppCompatActivity {
     private EditText editTextConfirmPassword;
 
     ProgressDialog progressDialog;
-    private ApiService mAPIService;
 
+    //API Register URL
+    public String register_url = "https://mchamatest.jeffreykingori.dev/api/v1/user/new";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,105 +47,129 @@ public class Register extends AppCompatActivity {
 
         progressDialog = new ProgressDialog(Register.this);
 
-//      initializing edit texts
+        //initializing edit texts
         editTextName = findViewById(R.id.name);
         editTextEmail = findViewById(R.id.email);
         editTextPhone = findViewById(R.id.phone);
         editTextPassword = findViewById(R.id.password);
         editTextConfirmPassword = findViewById(R.id.confirm_password);
 
-//      initializing sign up Button
+        //initializing sign up Button
         signUpBtn = findViewById(R.id.signup);
 
         signUpBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                progressDialog.setMessage("Loading...");
+                progressDialog.setMessage("Please wait...");
                 progressDialog.show();
 
-
-
-                //register();
-
-//                if(!TextUtils.isEmpty(name) && !TextUtils.isEmpty(email) &&
-//                        !TextUtils.isEmpty(phone) && !TextUtils.isEmpty(password)
-//                        && !TextUtils.isEmpty(confirmPassword)) {
-//
-//                }
-              userSignUp();
-
+                userSignUp();
 
             }
         });
-
-
-
-
 
     }
 
     private void userSignUp() {
-        String name = editTextName.getText().toString().trim();
-        String email = editTextEmail.getText().toString().trim();
-        String phone = editTextPhone.getText().toString().trim();
-        String password = editTextPassword.getText().toString().trim();
-        String confirmPassword = editTextConfirmPassword.getText().toString().trim();
+        final String name = editTextName.getText().toString().trim();
+        final String email = editTextEmail.getText().toString().trim();
+        final String phone = editTextPhone.getText().toString().trim();
+        final String password = editTextPassword.getText().toString().trim();
+        final String confirmPassword = editTextConfirmPassword.getText().toString().trim();
 
-
-        Call<ResponseBody> call = ApiClient
-                .getApiClient()
-                .getApi()
-                .createUser(name,email,phone,password,confirmPassword);
-
-
-        call.enqueue(new Callback<ResponseBody>() {
-            @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                String s = response.toString();
-                Toast.makeText(Register.this, s+"works!!!", Toast.LENGTH_LONG).show();
-               Intent register = new Intent(Register.this, Login.class);
-               startActivity(register);
-
-            }
+        //volley request
+        StringRequest userRequest = new StringRequest(Request.Method.POST, register_url, new com.android.volley.Response.Listener<String>() {
 
             @Override
-            public void onFailure(Call<ResponseBody> call, Throwable t) {
-                Toast.makeText(Register.this, t.getMessage(), Toast.LENGTH_LONG).show();
+            public void onResponse(String response) {
+                progressDialog.dismiss();
+                try {
+                    System.out.println(response);
+                    JSONObject regResponse = new JSONObject(response);
+                    String message = regResponse.getString("message");
 
+
+                    if(regResponse.has("errors")){
+                        JSONObject errors = regResponse.getJSONObject("errors");
+                        String errorMsg = errors.toString();
+
+                        String errMsg = "Error: "+ message.toUpperCase() +". \n\nDetails: "+errorMsg;
+                        //Error Dialog
+                        AlertDialog.Builder respBuilder = new AlertDialog.Builder(Register.this);
+                        respBuilder.setTitle("An Error has occurred!")
+                                .setMessage(errMsg)
+                                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        Toast.makeText(Register.this, "Please retry...",Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+                        AlertDialog dialog = respBuilder.create();
+                        dialog.show();
+                    }
+                    else if(regResponse.has("user")){
+                        JSONObject newUser = regResponse.getJSONObject("user");
+                        String uEmail = newUser.getString("email");
+                        String uName = newUser.getString("name");
+
+                        String success = "Welcome, "+ uName +" you have successfully created a mChama account with Email: '"+ uEmail +"'. \nUse this email to Login to your account.";
+
+                        //Show Success Dialog
+                        AlertDialog.Builder successBuilder = new AlertDialog.Builder(Register.this);
+                        successBuilder.setTitle("Registration Successful")
+                                .setMessage(success)
+                                .setPositiveButton("LOGIN", new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        Toast.makeText(Register.this, "Redirecting to Login...",Toast.LENGTH_SHORT).show();
+                                        Intent toLogin = new Intent(Register.this, Login.class);
+                                        startActivity(toLogin);
+                                    }
+                                });
+                        AlertDialog successDialog = successBuilder.create();
+                        successDialog.show();
+                    }
+                    else{
+                        //Some other server response message
+                        Toast.makeText(Register.this, message,Toast.LENGTH_LONG).show();
+                    }
+
+                } catch (JSONException je) {
+                    je.printStackTrace();
+                    Toast.makeText(Register.this, je.toString(),Toast.LENGTH_LONG).show();
+                }
             }
-        });
-
-
-
-    };
-
-    /*private void register(){
-        String name = editTextName.getText().toString().trim();
-        String email = editTextEmail.getText().toString().trim();
-        String phone = editTextPhone.getText().toString().trim();
-        String password = editTextPassword.getText().toString().trim();
-        String confirmPassword = editTextConfirmPassword.getText().toString().trim();
-         mAPIService.createUser(name, email, phone, password, confirmPassword).enqueue(new Callback<ResponseBody>() {
+        }, new Response.ErrorListener() {
             @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                String s = response.toString();
-
-                Toast.makeText(Register.this, s+"works!!!", Toast.LENGTH_LONG).show();
-
-                Intent register = new Intent(Register.this, Login.class);
-                startActivity(register);
-
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(Register.this,error.toString(),Toast.LENGTH_LONG).show();
+                error.printStackTrace();
+                progressDialog.dismiss();
             }
-
+        }){
+            //HTTP headers
             @Override
-            public void onFailure(Call<ResponseBody> call, Throwable t) {
-                Toast.makeText(Register.this, "Please fill in all the fields",Toast.LENGTH_LONG);
+            public Map<String, String> getHeaders() {
+                Map<String, String>  params = new HashMap<>();
+                params.put("Accept", "application/json");
 
+                return params;
             }
-        });
+            //Req params
+            @Override
+            protected Map<String,String> getParams(){
+                Map<String,String> params = new HashMap<>();
+                params.put("name", name);
+                params.put("email", email);
+                params.put("phone", phone);
+                params.put("password", password);
+                params.put("password_confirmation", confirmPassword);
+
+                return params;
+            }
+
+        };
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(userRequest);
     }
-
-    */
-
 
 }
