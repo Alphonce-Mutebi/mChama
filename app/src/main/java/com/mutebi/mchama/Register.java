@@ -67,7 +67,6 @@ public class Register extends AppCompatActivity {
 
             }
         });
-
     }
 
     private void userSignUp() {
@@ -165,7 +164,6 @@ public class Register extends AppCompatActivity {
 
                 return params;
             }
-
         };
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);

@@ -28,13 +28,16 @@ public class Dashboard extends AppCompatActivity {
         NavigationUI.setupWithNavController(bottomNavigationView, navController);
 
 
-
-
     }
 
     public void goToDeposit(View view) {
         Intent depositMoney = new Intent(Dashboard.this, DepositMoney.class);
         startActivity(depositMoney);
 
+    }
+
+    public void goToLoans(View view) {
+        Intent depositMoney = new Intent(Dashboard.this, LoanActivity.class);
+        startActivity(depositMoney);
     }
 }

@@ -23,9 +23,7 @@ public class DepositMoney extends AppCompatActivity {
     String mTitle[] = {"Wallet", "Loan Payment"};
     String mDescription[] = {"Deposit money into your saving wallet","Pay your loan"};
 
-    
     int images[] = {R.drawable.ic_withdraw_dashboard, R.drawable.ic_loans};
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,21 +40,16 @@ public class DepositMoney extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (position == 0 ){
-                    Toast.makeText(DepositMoney.this,"Wallet", Toast.LENGTH_SHORT).show();
-                        Intent wallet= new Intent(DepositMoney.this, Wallet.class);
-                        startActivity(wallet);
-
-
+                    Intent wallet= new Intent(DepositMoney.this, Wallet.class);
+                    startActivity(wallet);
                 }
                 if (position == 1  ){
-                    Toast.makeText(DepositMoney.this,"Loan Payment", Toast.LENGTH_SHORT).show();
+                    Intent toLoanService= new Intent(DepositMoney.this, LoanService.class);
+                    startActivity(toLoanService);
                 }
-
 
             }
         });
-
-
     }
 
     class MyAdapter extends ArrayAdapter<String> {
@@ -86,13 +79,9 @@ public class DepositMoney extends AppCompatActivity {
             TextView myTitle =row.findViewById(R.id.title);
             TextView myDescription =row.findViewById(R.id.subtitle);
 
-
             images.setImageResource(rImgs[position]);
             myTitle.setText(rTitle[position]);
             myDescription.setText(rDescription[position]);
-
-
-
 
             return row;
         }

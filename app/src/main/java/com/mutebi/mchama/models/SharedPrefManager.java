@@ -50,10 +50,16 @@ public class SharedPrefManager {
     public void userUpdate(String name, String email, String phone){
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-
         editor.putString(KEY_NAME, name);
         editor.putString(KEY_EMAIL, email);
         editor.putString(KEY_PHONE, phone);
+
+        editor.apply();
+    }
+    public void updateWallet(int bal){
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putInt(KEY_WALLET, bal);
 
         editor.apply();
     }

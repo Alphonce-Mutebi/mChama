@@ -19,8 +19,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.mutebi.mchama.Retrofit.ApiService;
-import com.mutebi.mchama.Retrofit.ApiUtils;
 import com.mutebi.mchama.models.SharedPrefManager;
 import com.mutebi.mchama.models.User;
 
@@ -35,8 +33,7 @@ public class Login extends AppCompatActivity {
     private EditText email;
     private EditText password;
     private Button signinBtn;
-//    Creating an instance of ApiService
-    private ApiService mAPIService;
+
 //    Progress dialog
     ProgressDialog progressDialog;
 
@@ -58,8 +55,6 @@ public class Login extends AppCompatActivity {
             return;
         }
 
-        //Initializing the ApiService instance
-        mAPIService = ApiUtils.getAPIService();
 
         //instantiate email and password text views
         email = findViewById(R.id.email);

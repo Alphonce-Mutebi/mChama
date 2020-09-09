@@ -1,14 +1,8 @@
 package com.mutebi.mchama.models;
 
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
-
 public class User {
-    @SerializedName("email")
-    @Expose
+
     private String email;
-    @SerializedName("password")
-    @Expose
     private int id;
     private String name;
     private String phone;

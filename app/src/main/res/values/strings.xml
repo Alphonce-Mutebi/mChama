@@ -17,7 +17,6 @@
     <string name="home">Home</string>
     <string name="notifications">Notifications</string>
     <string name="profile">Profile</string>
-    <string name="withdraw_money">Withdraw Money</string>
     <string name="loans">Loans</string>
     <string name="transactions">Transactions</string>
     <string name="confirm_password">Confirm Password</string>
@@ -28,8 +27,15 @@
     <string name="logout">Logout</string>
     <string name="update_profile">UPDATE PROFILE</string>
     <string name="m_pesa_phone">M-Pesa Phone:</string>
-    <string name="joined_on">Joined on: -----</string>
     <string name="name">Name:</string>
     <string name="email">Email:</string>
     <string name="update_profile_details">Update profile Details</string>
+    <string name="rotation_list">Rotation List</string>
+    <string name="e_g_254722334455">e.g 254722334455</string>
+    <string name="amount_min_100_kes">Amount (min. 100 KES)</string>
+    <string name="submit">SUBMIT</string>
+    <string name="please_enter_you_phone_number_and_the_amount_you_wish_to_deposit_to_service_your_loan">Please enter you Phone number and the amount you wish to deposit to service your loan</string>
+    <string name="send">SEND</string>
+    <string name="current_loan_balance">Current Loan Balance</string>
+    <string name="please_enter_you_phone_number_and_the_amount_you_wish_to_deposit">Please enter you Phone number and the amount you wish to deposit</string>
 </resources>

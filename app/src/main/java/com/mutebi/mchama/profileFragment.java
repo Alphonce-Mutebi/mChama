@@ -159,7 +159,7 @@ public class profileFragment extends Fragment {
                     int success = regResponse.getInt("success");
                     String message = regResponse.getString("message");
 
-                    //Handling Successful login
+                    //Handling Successful response
                     if(success == 1){
                         if(regResponse.has("updates")){
                             JSONObject mUser = regResponse.getJSONObject("updates");
@@ -171,6 +171,7 @@ public class profileFragment extends Fragment {
                             //updating the user details in shared preferences
                             SharedPrefManager.getInstance(requireActivity().getApplicationContext()).userUpdate(updatedName, updatedEmail, updatedPhone);
 
+                            //setting updated details to view
                             setCurrentProfile();
                             AlertDialog.Builder respBuilder = new AlertDialog.Builder(getContext());
                             respBuilder.setTitle("Profile Updated")
@@ -182,10 +183,9 @@ public class profileFragment extends Fragment {
                                     });
                             AlertDialog dialog = respBuilder.create();
                             dialog.show();
-
                         }
                     }
-                    //Handling unsuccessful login
+                    //Handling unsuccessful response
                     else if(success == 0){
                         if(regResponse.has("errors")){
                             JSONObject errors = regResponse.getJSONObject("errors");
@@ -217,7 +217,6 @@ public class profileFragment extends Fragment {
                             AlertDialog dialog = respBuilder.create();
                             dialog.show();
                         }
-
                     }
                     else{
                         //Some other server response message
