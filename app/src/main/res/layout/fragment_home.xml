@@ -123,7 +123,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
 
-                            android:src="@drawable/ic_withdraw_dashboard" />
+                            android:src="@drawable/ic_transactions" />
                     </com.google.android.material.card.MaterialCardView>
                     <TextView
                         android:layout_width="wrap_content"
@@ -169,7 +169,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
 
-                            android:src="@drawable/ic_loans_dashboard" />
+                            android:src="@drawable/ic_withdraw_dashboard" />
                     </com.google.android.material.card.MaterialCardView>
 
                     <TextView

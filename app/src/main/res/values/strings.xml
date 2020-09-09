@@ -12,6 +12,16 @@
         <item>@drawable/ic_savings</item>
         <item>@drawable/ic_transactions</item>
     </integer-array>
+
+    <string-array name="repayment_period">
+        <item>1 month</item>
+        <item>3 months</item>
+        <item>6 months</item>
+        <item>12 months</item>
+        <item>18 months</item>
+        <item>24 months</item>
+    </string-array>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="home">Home</string>
@@ -38,4 +48,6 @@
     <string name="send">SEND</string>
     <string name="current_loan_balance">Current Loan Balance</string>
     <string name="please_enter_you_phone_number_and_the_amount_you_wish_to_deposit">Please enter you Phone number and the amount you wish to deposit</string>
+
+
 </resources>
