@@ -10,14 +10,28 @@
     <TextView
         android:id="@+id/greetingText"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="@color/colorPrimaryDark"
         android:paddingTop="20dp"
-        android:text="Hello"
+        android:text="@string/hello"
         android:fontFamily="@font/adobe_garamond_pro_bold"
         android:textAlignment="center"
         android:textColor="#ffff"
         android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal" />
+    <TextView
+        android:id="@+id/walletText"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimaryDark"
+        android:paddingTop="20dp"
+        android:layout_below="@+id/greetingText"
+        android:text="@string/mwallet_0_00"
+        android:fontFamily="@font/adobe_garamond_pro_bold"
+        android:textAlignment="center"
+        android:textColor="#ffff"
+        android:textSize="20sp"
         android:textStyle="bold"
         android:layout_gravity="center_horizontal" />
 

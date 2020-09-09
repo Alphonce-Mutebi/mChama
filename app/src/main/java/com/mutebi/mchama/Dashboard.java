@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class dashboard extends AppCompatActivity {
+public class Dashboard extends AppCompatActivity {
     private TextView userName;
 
     @Override
@@ -33,7 +33,7 @@ public class dashboard extends AppCompatActivity {
     }
 
     public void goToDeposit(View view) {
-        Intent depositMoney = new Intent(dashboard.this, DepositMoney.class);
+        Intent depositMoney = new Intent(Dashboard.this, DepositMoney.class);
         startActivity(depositMoney);
 
     }

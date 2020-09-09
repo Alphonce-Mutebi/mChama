@@ -1,30 +1,35 @@
 package com.mutebi.mchama;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import okhttp3.ResponseBody;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.mutebi.mchama.Retrofit.ApiClient;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.mutebi.mchama.Retrofit.ApiService;
 import com.mutebi.mchama.Retrofit.ApiUtils;
-import com.mutebi.mchama.models.Data;
-import com.mutebi.mchama.models.Data_;
+import com.mutebi.mchama.models.SharedPrefManager;
 import com.mutebi.mchama.models.User;
-import com.mutebi.mchama.models.UserResponse;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
+
 
 public class Login extends AppCompatActivity {
     private EditText email;
@@ -35,27 +40,32 @@ public class Login extends AppCompatActivity {
 //    Progress dialog
     ProgressDialog progressDialog;
 
-    public static String authToken;
-
-
-
+    public String login_url = "https://mchamatest.jeffreykingori.dev/api/v1/user/oauth";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-//      Instantiate Progress Dialog
+        //Instantiate Progress Dialog
         progressDialog = new ProgressDialog(Login.this);
 
-//        Initializing the ApiService instance
+        //checking sign in status
+        if (SharedPrefManager.getInstance(this).isLoggedIn()) {
+            Toast.makeText(Login.this, "Welcome back...",Toast.LENGTH_SHORT).show();
+            finish();
+            startActivity(new Intent(this, Dashboard.class));
+            return;
+        }
+
+        //Initializing the ApiService instance
         mAPIService = ApiUtils.getAPIService();
 
-//        instantiate email and password text views
+        //instantiate email and password text views
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
 
-//        instantiate sign in button
+        //instantiate sign in button
         signinBtn = findViewById(R.id.signin);
         signinBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,77 +78,149 @@ public class Login extends AppCompatActivity {
                 if(!TextUtils.isEmpty(editTextEmail) && !TextUtils.isEmpty(editTextPassword)) {
                     authenticateUser(editTextEmail, editTextPassword);
                 }
+                else {
+                    //validation responses
+                    progressDialog.dismiss();
+                    if (TextUtils.isEmpty(editTextEmail)) {
+                        email.setError("Please enter your mChama email");
+                        email.requestFocus();
+                        return;
+                    }
 
+                    if (!android.util.Patterns.EMAIL_ADDRESS.matcher(editTextEmail).matches()) {
+                        email.setError("Enter a valid email address");
+                        email.requestFocus();
+                        return;
+                    }
+
+                    if (TextUtils.isEmpty(editTextPassword)) {
+                        password.setError("Enter a password");
+                        password.requestFocus();
+                        return;
+                    }
+                }
 
             }
         });
 
-
-
-
-
-
-
-
-    }
-    public void authenticateUser(String email, String password){
-        mAPIService.authenticateUser(email,password).enqueue(new Callback<Data>() {
-
-            @Override
-            public void onResponse(Call<Data> call, Response<Data> response) {
-                String name = response.body().getData().getUserResponse().getName();
-                authToken = response.body().getData().getToken();
-                //Toast.makeText(Login.this, response.body().getData().getToken()+"works!!!", Toast.LENGTH_LONG).show();
-                Intent login = new Intent(Login.this, dashboard.class);
-
-                login.putExtra("name", name);
-                startActivity(login);
-
-            }
-
-            @Override
-            public void onFailure(Call<Data> call, Throwable t) {
-                Toast.makeText(Login.this, "Username or Password is invalid",Toast.LENGTH_LONG);
-
-            }
-
-
-        });
-
     }
 
+    public void authenticateUser(final String email, final String password){
+        //volley request
+        StringRequest userRequest = new StringRequest(Request.Method.POST, login_url, new com.android.volley.Response.Listener<String>() {
 
+            @Override
+            public void onResponse(String response) {
+                progressDialog.dismiss();
+                try {
+                    //Handling Response
+                    System.out.println(response);
+                    JSONObject regResponse = new JSONObject(response);
 
-    public void signin() {
+                    int success = regResponse.getInt("success");
+                    String message = regResponse.getString("message");
 
+                    //Handling Successful login
+                    if(success == 1){
+                        if(regResponse.has("user")){
+                            JSONObject mUser = regResponse.getJSONObject("user");
+                            String uName = mUser.getString("name");
+                            String[] split = uName.split("\\s+");
+                            String fName = split[0];
+                            Toast.makeText(Login.this, "Welcome back "+fName, Toast.LENGTH_LONG).show();
 
+                            User user = new User(
+                                    mUser.getInt("id"),
+                                    mUser.getString("name"),
+                                    mUser.getString("email"),
+                                    mUser.getString("phone"),
+                                    mUser.getInt("wallet"),
+                                    mUser.getInt("rotation"),
+                                    regResponse.getString("token")
+                            );
 
+                            //storing the user in shared preferences
+                            SharedPrefManager.getInstance(getApplicationContext()).userLogin(user);
 
-//        User user = new User(editTextEmail,editTextPassword);
-//
-//        Call<UserResponse> call = ApiClient
-//                .getApiClient()
-//                .getUserClient()
-//                .loginAccount(user);
-//
-//        call.enqueue(new Callback<UserResponse>() {
-//            @Override
-//            public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
-//                String s = response.toString();
-//                Toast.makeText(Login.this, s+"works!!!", Toast.LENGTH_LONG).show();
-//
-////                Intent intent = new Intent(Login.this, dashboard.class);
-////                startActivity(intent);
-//
-//            }
-//
-//            @Override
-//            public void onFailure(Call<UserResponse> call, Throwable t) {
-//
-//            }
-//        });
+                            //starting the Dashboard activity
+                            finish();
+                            startActivity(new Intent(getApplicationContext(), Dashboard.class));
 
+                        }
+                    }
+                    //Handling unsuccessful login
+                    else if(success == 0){
+                        if(regResponse.has("errors")){
+                            JSONObject errors = regResponse.getJSONObject("errors");
+                            String errorMsg = errors.toString();
 
+                            String errMsg = "Error: "+ message.toUpperCase() +". \n\nDetails: "+errorMsg;
+                            //Error Dialog
+                            AlertDialog.Builder respBuilder = new AlertDialog.Builder(Login.this);
+                            respBuilder.setTitle("Login Failed!")
+                                    .setMessage(errMsg)
+                                    .setNeutralButton("Dismiss", new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int id) {
+                                            Toast.makeText(Login.this, "Please retry...",Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+                            AlertDialog dialog = respBuilder.create();
+                            dialog.show();
+                        }
+                        else{
+                            AlertDialog.Builder respBuilder = new AlertDialog.Builder(Login.this);
+                            respBuilder.setTitle("Login Failed!")
+                                    .setMessage(message)
+                                    .setNeutralButton("Dismiss", new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int id) {
+                                            dialog.dismiss();
+                                            Toast.makeText(Login.this, "Please retry...",Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+                            AlertDialog dialog = respBuilder.create();
+                            dialog.show();
+                        }
+
+                    }
+                    else{
+                        //Some other server response message
+                        Toast.makeText(Login.this, message,Toast.LENGTH_LONG).show();
+                    }
+
+                } catch (JSONException je) {
+                    je.printStackTrace();
+                    Toast.makeText(Login.this, je.toString(),Toast.LENGTH_LONG).show();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(Login.this,error.toString(),Toast.LENGTH_LONG).show();
+                error.printStackTrace();
+                progressDialog.dismiss();
+            }
+        }){
+            //HTTP headers
+            @Override
+            public Map<String, String> getHeaders() {
+                Map<String, String>  params = new HashMap<>();
+                params.put("Accept", "application/json");
+
+                return params;
+            }
+            //Req params
+            @Override
+            protected Map<String,String> getParams(){
+                Map<String,String> params = new HashMap<>();
+                params.put("email", email);
+                params.put("password", password);
+
+                return params;
+            }
+        };
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(userRequest);
     }
 
     public void signup(View view) {
@@ -146,7 +228,6 @@ public class Login extends AppCompatActivity {
         startActivity(intent);
 
     }
-
 
     public void goToForgotPassword(View view) {
         Intent forgot = new Intent(this, ForgotActivity.class);

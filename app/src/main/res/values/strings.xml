@@ -23,4 +23,13 @@
     <string name="confirm_password">Confirm Password</string>
     <string name="deposit_money">Deposit Money</string>
     <string name="current_balance">Current Balance</string>
+    <string name="mwallet_0_00">mWallet: 0.00</string>
+    <string name="hello">Hello</string>
+    <string name="logout">Logout</string>
+    <string name="update_profile">UPDATE PROFILE</string>
+    <string name="m_pesa_phone">M-Pesa Phone:</string>
+    <string name="joined_on">Joined on: -----</string>
+    <string name="name">Name:</string>
+    <string name="email">Email:</string>
+    <string name="update_profile_details">Update profile Details</string>
 </resources>
