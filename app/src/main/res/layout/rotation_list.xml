@@ -12,7 +12,7 @@
         <ImageView
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:src="@drawable/ic_withdraw_dashboard"
+            android:src="@drawable/ic_profile_icon"
             />
 
         <TextView
@@ -20,12 +20,12 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="90dp"
             android:layout_marginTop="15dp"
-            android:text="Amount: "
+            android:text="Member Name:"
             android:fontFamily="@font/adobe_garamond_pro_regular"
             android:textSize="15sp"/>
 
         <TextView
-            android:id="@+id/amount"
+            android:id="@+id/rotation_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="200dp"
@@ -39,12 +39,12 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="90dp"
             android:layout_marginTop="45dp"
-            android:text="Transaction Type: "
+            android:text="Rotation Turn:"
             android:fontFamily="@font/adobe_garamond_pro_regular"
             android:textSize="15sp"/>
 
         <TextView
-            android:id="@+id/transaction_type"
+            android:id="@+id/rotation_turn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="200dp"
@@ -54,7 +54,7 @@
             android:fontFamily="@font/adobe_garamond_pro_bold"/>
 
         <TextView
-            android:id="@+id/transaction_date"
+            android:id="@+id/rotation_role"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
