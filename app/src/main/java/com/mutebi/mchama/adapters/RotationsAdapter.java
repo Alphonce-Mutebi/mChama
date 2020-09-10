@@ -53,9 +53,9 @@ public class RotationsAdapter extends RecyclerView.Adapter<RotationsAdapter.View
     public void onBindViewHolder(@NonNull RotationsAdapter.ViewHolder holder, int position) {
         final RotationList currentUser = rotationList.get(position);
 
-        holder.name.setText("Name");
-        holder.rotationTurn.setText("Yes");
-        holder.userType.setText("User");
+        holder.name.setText(currentUser.getName());
+        holder.rotationTurn.setText(currentUser.getRotationTurn());
+        holder.userType.setText(currentUser.getUserType());
 
         holder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override

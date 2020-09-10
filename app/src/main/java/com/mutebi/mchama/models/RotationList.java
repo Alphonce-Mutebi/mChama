@@ -5,21 +5,6 @@ public class RotationList {
     private String rotationTurn;
     private String userType;
 
-    /*
-    public String getTransactionType() {
-        String transType = "other";
-        if(rotationTurn.equals("1")){
-            transType = "Loan Service";
-        }
-        else if(rotationTurn.equals("2")){
-            transType = "mWallet";
-        }
-
-        return transType;
-    }
-
-     */
-
 
     public String getName() {
         return name;
@@ -30,7 +15,15 @@ public class RotationList {
     }
 
     public String getRotationTurn() {
-        return rotationTurn;
+        String rotation = "No";
+        if(rotationTurn.equals("0")){
+            rotation = "No";
+        }
+        else if(rotationTurn.equals("1")){
+            rotation = "On Rotation";
+        }
+
+        return rotation;
     }
 
     public void setRotationTurn(String rotationTurn) {
@@ -38,7 +31,8 @@ public class RotationList {
     }
 
     public String getUserType() {
-        return userType;
+        String justDate = "Joined: "+userType.substring(0, Math.min(userType.length(), 10));
+        return justDate;
     }
 
     public void setUserType(String userType) {
