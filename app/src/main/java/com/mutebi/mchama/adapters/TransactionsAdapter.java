@@ -1,15 +1,12 @@
 package com.mutebi.mchama.adapters;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.view.LayoutInflater;
 
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.mutebi.mchama.R;
 import com.mutebi.mchama.models.TransactionList;
@@ -80,7 +77,6 @@ public class TransactionsAdapter extends RecyclerView.Adapter<TransactionsAdapte
 
             }
         });
-
 
     }
 
