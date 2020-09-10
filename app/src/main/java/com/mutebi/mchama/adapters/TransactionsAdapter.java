@@ -1,15 +1,12 @@
 package com.mutebi.mchama.adapters;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.view.LayoutInflater;
 
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.mutebi.mchama.R;
 import com.mutebi.mchama.models.TransactionList;
@@ -37,6 +34,7 @@ public class TransactionsAdapter extends RecyclerView.Adapter<TransactionsAdapte
 
         public TextView amount;
         public TextView type;
+        public TextView date;
         public LinearLayout linearLayout;
 
         public ViewHolder(@NonNull View itemView){
@@ -44,6 +42,7 @@ public class TransactionsAdapter extends RecyclerView.Adapter<TransactionsAdapte
 
             amount = itemView.findViewById(R.id.amount);
             type = itemView.findViewById(R.id.transaction_type);
+            date = itemView.findViewById(R.id.transaction_date);
             linearLayout = itemView.findViewById(R.id.linearLayout);
 
 
@@ -63,6 +62,7 @@ public class TransactionsAdapter extends RecyclerView.Adapter<TransactionsAdapte
 
         holder.amount.setText(currentTransaction.getAmount());
         holder.type.setText(currentTransaction.getTransactionType());
+        holder.date.setText(currentTransaction.getDate());
 
         holder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,7 +77,6 @@ public class TransactionsAdapter extends RecyclerView.Adapter<TransactionsAdapte
 
             }
         });
-
 
     }
 

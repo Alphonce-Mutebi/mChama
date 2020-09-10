@@ -46,5 +46,10 @@ public class Dashboard extends AppCompatActivity {
         startActivity(transaction);
     }
 
+    public void goToRotationList(View view){
+        Intent toRotation = new Intent(Dashboard.this, RotationListActivity.class);
+        startActivity(toRotation);
+    }
+
 
 }
