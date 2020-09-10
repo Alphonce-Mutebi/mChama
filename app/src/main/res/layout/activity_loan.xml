@@ -93,9 +93,9 @@
         android:layout_below="@+id/loan_amount"
         android:background="@drawable/custom_input"
         android:padding="22dp"
-
+        android:drawableEnd="@drawable/ic_arrow_drop_down"
         android:textColor="@android:color/white"
-        />
+        android:drawableRight="@drawable/ic_arrow_drop_down" />
 
 
     <Button

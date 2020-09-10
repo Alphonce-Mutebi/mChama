@@ -16,7 +16,7 @@
         android:text="@string/hello"
         android:fontFamily="@font/adobe_garamond_pro_bold"
         android:textAlignment="center"
-        android:textColor="#ffff"
+        android:textColor="#ffffff"
         android:textSize="25sp"
         android:textStyle="bold"
         android:layout_gravity="center_horizontal" />
@@ -115,6 +115,7 @@
                         android:layout_height="80dp"
                         android:layout_centerInParent="true"
                         app:cardCornerRadius="24dp"
+
                         >
 
                         <ImageView
@@ -207,6 +208,8 @@
                         android:layout_height="80dp"
                         android:layout_centerInParent="true"
                         app:cardCornerRadius="24dp"
+                        android:onClick="goToTransactionHistory"
+                        tools:ignore="OnClick"
                         >
 
                         <ImageView

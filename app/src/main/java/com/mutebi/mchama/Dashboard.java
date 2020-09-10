@@ -37,7 +37,14 @@ public class Dashboard extends AppCompatActivity {
     }
 
     public void goToLoans(View view) {
-        Intent depositMoney = new Intent(Dashboard.this, LoanActivity.class);
-        startActivity(depositMoney);
+        Intent loanActivity = new Intent(Dashboard.this, LoanActivity.class);
+        startActivity(loanActivity);
     }
+
+    public void goToTransactionHistory(View view) {
+        Intent transaction = new Intent(Dashboard.this, TransactionHistory.class);
+        startActivity(transaction);
+    }
+
+
 }

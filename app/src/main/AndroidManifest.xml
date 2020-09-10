@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LoanService"></activity>
+        <activity android:name=".TransactionHistory"></activity>
+        <activity android:name=".LoanService" />
         <activity android:name=".LoanActivity" />
         <activity android:name=".ForgotActivity" />
         <activity android:name=".Wallet" />
