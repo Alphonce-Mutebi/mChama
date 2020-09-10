@@ -29,6 +29,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Savings"
+            android:fontFamily="@font/adobe_garamond_pro_bold"
             android:textColor="@android:color/black"
             android:gravity="center"
             android:textSize="25sp"
@@ -37,8 +38,9 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="lorem ipsum dolor"
+            android:text="Safe And Secure Digital Wallet "
             android:layout_marginStart="25dp"
+            android:fontFamily="@font/adobe_garamond_pro_regular"
             android:layout_marginEnd="25sp"
             android:layout_marginTop="15dp"
             android:textColor="@android:color/black"

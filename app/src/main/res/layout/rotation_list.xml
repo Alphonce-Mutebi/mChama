@@ -60,7 +60,7 @@
             android:layout_gravity="right"
             android:layout_marginRight="20dp"
             android:text="@string/date"
-            android:layout_marginTop="55dp"
+            android:layout_marginTop="65dp"
             android:textSize="8sp"
             android:fontFamily="@font/adobe_garamond_pro_bold"
             android:layout_marginEnd="20dp" />
