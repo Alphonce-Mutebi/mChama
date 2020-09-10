@@ -35,7 +35,7 @@
 
 
     <EditText
-        android:id="@+id/fund_date"
+        android:id="@+id/newLoan_fund_date"
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:layout_marginLeft="20dp"
@@ -46,51 +46,66 @@
         android:drawableEnd="@drawable/ic_calendar"
         android:background="@drawable/custom_input"
         android:fontFamily="@font/adobe_garamond_pro_regular"
-        android:hint="dd/mm/yyyy"
+        android:hint="@string/dd_mm_yyyy"
         android:inputType="date"
         android:padding="15dp"
         android:drawableRight="@drawable/ic_calendar" />
 
     <EditText
-        android:id="@+id/repayment_start_date"
+        android:id="@+id/newLoan_repayment_start_date"
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:layout_marginLeft="11dp"
         android:layout_marginTop="15dp"
         android:layout_marginRight="20dp"
-        android:layout_toRightOf="@+id/fund_date"
+        android:layout_toRightOf="@+id/newLoan_fund_date"
         android:layout_below="@+id/description"
         android:drawableEnd="@drawable/ic_calendar"
         android:background="@drawable/custom_input"
         android:fontFamily="@font/adobe_garamond_pro_regular"
-        android:hint="dd/mm/yyyy"
+        android:hint="@string/dd_mm_yyyy"
         android:inputType="date"
         android:padding="15dp"
         android:drawableRight="@drawable/ic_calendar" />
 
     <EditText
-        android:id="@+id/loan_amount"
+        android:id="@+id/newLoan_amount"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="25dp"
         android:layout_marginRight="20dp"
-        android:layout_below="@+id/fund_date"
+        android:layout_below="@+id/newLoan_fund_date"
         android:background="@drawable/custom_input"
         android:fontFamily="@font/adobe_garamond_pro_regular"
-        android:hint="@string/amount_min_100_kes"
+        android:hint="@string/min_1000_kes"
         android:inputType="number"
         android:padding="15dp" />
+
+    <TextView
+        android:id="@+id/newLoan_period_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/newLoan_amount"
+        android:layout_marginLeft="35dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:paddingTop="15dp"
+        android:text="@string/repayment_period"
+        android:textSize="15sp"
+        android:fontFamily="@font/adobe_garamond_pro_bold"
+        android:layout_marginStart="35dp"
+        android:layout_marginEnd="20dp" />
 
     <Spinner
         android:id="@+id/repayment_period"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Repayment Period"
+        android:text="@string/dd_mm_yyyy"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="5dp"
         android:layout_marginRight="20dp"
-        android:layout_below="@+id/loan_amount"
+        android:layout_below="@+id/newLoan_period_title"
         android:background="@drawable/custom_input"
         android:padding="22dp"
         android:drawableEnd="@drawable/ic_arrow_drop_down"
@@ -99,7 +114,7 @@
 
 
     <Button
-        android:id="@+id/loan_submit"
+        android:id="@+id/newLoan_submit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
@@ -110,7 +125,6 @@
         android:fontFamily="@font/adobe_garamond_pro_regular"
         android:text="@string/submit"
         android:textColor="#ffffff"
-
 
         />
 
