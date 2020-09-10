@@ -31,7 +31,7 @@ import java.util.Map;
 
 public class TransactionHistory extends AppCompatActivity {
 
-    public static final String URL_DATA = "https://mchamatest.jeffreykingori.dev/api/v1/user/history/1";
+    private String trans_history_url = "https://mchamatest.jeffreykingori.dev/api/v1/user/history/";
 
     private RecyclerView recyclerView;
 
@@ -58,6 +58,10 @@ public class TransactionHistory extends AppCompatActivity {
         User currentAuthUser = SharedPrefManager.getInstance(TransactionHistory.this).getUser();
         currentUserId = currentAuthUser.getId();
         token = currentAuthUser.getToken();
+
+        final String URL_DATA = trans_history_url.concat(Integer.toString(currentUserId));
+
+
         final ProgressDialog progressDialog= new ProgressDialog(this);
         progressDialog.setMessage("Loading....");
         progressDialog.show();
@@ -71,7 +75,7 @@ public class TransactionHistory extends AppCompatActivity {
                     JSONArray array = jsonObject.getJSONArray("data");
                     for (int i = 0; i < array.length(); i++) {
                         JSONObject jo = array.getJSONObject(i);
-                        TransactionList transactions = new TransactionList(jo.getString("amount"), jo.getString("type"));
+                        TransactionList transactions = new TransactionList(jo.getString("amount"), jo.getString("type"), jo.getString("created_at"));
                         transactionLists.add(transactions);
                         Log.d("res", "transactions" + transactions);
 

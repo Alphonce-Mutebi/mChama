@@ -48,6 +48,7 @@
     <string name="send">SEND</string>
     <string name="current_loan_balance">Current Loan Balance</string>
     <string name="please_enter_you_phone_number_and_the_amount_you_wish_to_deposit">Please enter you Phone number and the amount you wish to deposit</string>
+    <string name="date">Date</string>
 
 
 </resources>
